@@ -2,7 +2,7 @@ mapboxgl.accessToken = mapToken;
 const map = new mapboxgl.Map({
   container: "cluster-map", // container ID
   style: "mapbox://styles/mapbox/light-v10", // style URL
-  center: [-99, 39.8], // starting position [lng, lat]
+  center: [108.8, 4.4], // starting position [lng, lat]
   zoom: 3.4, // starting zoom
   // projection: "globe", // display the map as a 3D globe
 });
