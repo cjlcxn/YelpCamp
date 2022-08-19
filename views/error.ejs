@@ -1,0 +1,14 @@
+<%- layout('layouts/boilerplate') %>
+
+<div class="row">
+  <div class="col-6 offset-3">
+    <div class="alert alert-danger" style="overflow-wrap: break-word">
+      <h4 class="alert-heading" role="alert"><%= err.message %></h4>
+      <!-- if app running in production, dont show error stacks, cuz unfriendly-->
+      <% if (process.env.NODE_ENV !== "production") < %>
+      <p><%= err.stack %></p>
+      <% > %>
+      <hr />
+    </div>
+  </div>
+</div>

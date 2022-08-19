@@ -1,0 +1,26 @@
+Models:
+1) campgrounds,
+2) reviews,
+3) users
+
+RESTful routes:
+I) campgrounds
+Format: HTTP method - route - renderFileName - function
+    1) GET - /campgrounds - index.ejs - renders all campgrounds
+    2) GET - /campgrounds/new - new.ejs - renders form to create new campground
+    3) POST - /campgrounds - N/A - inserts new campground based on form, redirects
+    4) GET - /campgrounds/:id - show.ejs - renders show of 1 campground
+    5) GET - /campgrounds/:id/edit - edit.ejs - renders form to edit current campground
+    6) PUT - /campgrounds/:id - N/A - edits the selected campground
+    7) DELETE - /campgrounds/:id - N/A - deletes the selected campground
+
+II) reviews
+    1) POST - /campgrounds/:id/reviews - N/A - adds new logged in user's review to both campground and user db. 
+    2) DELETE - /campgrounds/:id/reviews/:reviewID - N/A - deletes specific review, from both campground and user db
+
+III) users
+    1) GET - /register - register.ejs - renders form to register with username w/ password
+    2) POST - /register - N/A - adds username and hashed password of user to user db
+    3) GET - /login - login.ejs - renders form to log in with username and password
+    4) POST - /login - N/A - if credentials match, make that user be the current active user of that session
+    5) GET - /logout - N/A - delete from session the current active user.

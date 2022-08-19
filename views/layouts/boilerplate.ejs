@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link
+      href="https://api.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/map.css" />
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.js"></script>
+    <script defer src="/js/bootstrap.min.js"></script>
+    <script defer src="/js/formValidation.js"></script>
+
+    <title>YELP CAMP</title>
+  </head>
+  <body class="d-flex flex-column vh-100">
+    <%- include('../partials/navBar.ejs') %>
+    <main class="container mt-5">
+      <%- include('../partials/flashMessage.ejs') %> <%- body %>
+    </main>
+    <%- include('../partials/footer.ejs') %>
+  </body>
+</html>

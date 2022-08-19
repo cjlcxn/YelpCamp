@@ -1,0 +1,54 @@
+<%- layout('layouts/boilerplate') %>
+<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.css"
+  type="text/css"
+/>
+
+<div id="cluster-map"></div>
+
+<h1 class="mb-3">All Campgrounds</h1>
+
+<% campAll.forEach(c => { %>
+<div class="card mb-3">
+  <div class="row">
+    <div class="col-md-4">
+      <!-- thumbnail displays 1st image (if there are multiple), or defaults to a pre-save image (if there are none) -->
+      <% if(c.images.length) { %>
+      <img
+        src="<%= c.images[0].url %>"
+        class="img-fluid rounded-start"
+        style="height: 100%; width: 100%; object-fit: cover"
+        alt="camping"
+      />
+      <% } else { %>
+      <img
+        src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iNzUycHQiIGhlaWdodD0iNzUycHQiIHZlcnNpb249IjEuMSIgdmlld0JveD0iMCAwIDc1MiA3NTIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiA8cGF0aCBkPSJtMTc3IDIzOC42NnYyNzQuNjhoMzk4di0yNzQuNjh6bTM3MC44MyAyNDkuODItMTE5LjIxLTEzNC42OS05NS44MjggMTA4LjI5LTUzLjgyOC02MC44MjQtNzQuODA1IDg0LjUxMnYtMjIzLjIzaDM0My42N3oiLz4KPC9zdmc+Cg=="
+        class="img-fluid rounded-start"
+        alt="camping"
+        style="height: 100%; width: 100%; object-fit: cover"
+      />
+      <% } %>
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title"><%= c.title %></h5>
+        <p class="card-text"><%= c.description %></p>
+        <p class="card-text">
+          <small class="text-muted"><%= c.location %></small>
+        </p>
+        <a href="/campgrounds/<%= c.id %>" class="btn btn-primary">More</a>
+      </div>
+    </div>
+  </div>
+</div>
+<% }) %>
+
+<!-- to add a script, just to pass information fron back end ejs to front end js (replacement for making API calls to own server) -->
+<script>
+  const mapToken = '<%-process.env.MAPBOX_TOKEN%>';
+  const campgrounds = <%- JSON.stringify(campAll) %>
+</script>
+
+<script src="/js/indexPageMap.js"></script>
